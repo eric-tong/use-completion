@@ -1,0 +1,36 @@
+{
+  "name": "use-completion",
+  "version": "0.0.1",
+  "description": "Lightweight React Hook to interact with with the OpenAI Completion API, which completes text using GPT models",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eric-tong/use-completion.git"
+  },
+  "keywords": [
+    "openai",
+    "chatgpt",
+    "react",
+    "hook",
+    "completion"
+  ],
+  "author": "Eric Tong <erictong.designs@gmail.com> (https://eric-tong.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eric-tong/use-completion/issues"
+  },
+  "homepage": "https://github.com/eric-tong/use-completion#readme",
+  "dependencies": {
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "prettier": "^2.8.8",
+    "react": "^18.2.0"
+  }
+}
