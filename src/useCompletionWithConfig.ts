@@ -9,7 +9,7 @@ import type { Completion } from './types';
  * @param {CreateCompletionRequest} request Configuration for the request to be sent to the Completion API, including the prompt and model name
  * @param {Configuration} configuration Configuration for OpenAI API, including API key
  */
-export default function useCompletion(request: CreateCompletionRequest, configuration: Configuration): Completion {
+export default function useCompletionWithConfig(request: CreateCompletionRequest, configuration: Configuration): Completion {
     const [text, setText] = useState<string>()
     const [isFetching, setIsFetching] = useState<boolean>(true)
     const [error, setError] = useState<Error>()

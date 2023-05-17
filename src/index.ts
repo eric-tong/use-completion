@@ -1,1 +1,2 @@
-console.log("hello world")
+export { default as useCompletion } from "./useCompletion"
+export * as useCompletionWithConfig from "./useCompletionWithConfig"
