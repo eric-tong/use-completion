@@ -27,6 +27,8 @@
     "openai": "^3.2.1"
   },
   "devDependencies": {
+    "@types/node": "^20.1.7",
+    "@types/react": "^18.2.6",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
