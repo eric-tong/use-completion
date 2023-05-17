@@ -1,0 +1,1 @@
+export const DEFAULT_MODEL = "text-davinci-003"
