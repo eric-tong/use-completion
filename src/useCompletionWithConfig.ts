@@ -17,7 +17,7 @@ export default function useCompletionWithConfig(request: CreateCompletionRequest
     const openai = new OpenAIApi(configuration)
     openai.createCompletion(request)
         .then(response => response.data)
-        .then(data => data.choices[0]?.text!!)
+        .then(data => data.choices[0]?.text!!) // TODO: Support cases where n > 1
         .then(text => setText(text))
         .then(() => setIsFetching(false))
         .catch(setError)
