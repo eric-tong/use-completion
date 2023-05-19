@@ -15,7 +15,8 @@
     "chatgpt",
     "react",
     "hook",
-    "completion"
+    "completion",
+    "usecompletion"
   ],
   "author": "Eric Tong <erictong.designs@gmail.com> (https://eric-tong.com)",
   "license": "MIT",
