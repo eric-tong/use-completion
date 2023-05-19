@@ -4,7 +4,7 @@
   "description": "Lightweight React Hook to interact with with the OpenAI Completion API, which completes text using GPT models",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,17 @@
     "openai": "^3.2.1"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^29.5.1",
     "@types/node": "^20.1.7",
-    "@types/react": "^18.2.6",
+    "@types/react": "16 - 18",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "react-test-renderer": "16 - 18",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "prettier": "^2.8.8",
-    "react": "^18.2.0"
+    "react": "16 - 18"
   }
 }
