@@ -4,7 +4,7 @@
   "description": "Lightweight React Hook to interact with with the OpenAI Completion API, which completes text using GPT models",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
