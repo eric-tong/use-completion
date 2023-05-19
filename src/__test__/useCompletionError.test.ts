@@ -6,15 +6,13 @@ jest.mock('openai', () => {
     return {
         ...originalModule,
         OpenAIApi: jest.fn().mockImplementation(() => ({
-            createCompletion: jest.fn().mockResolvedValue({
-                data: { choices: [{ text: 'Mocked completion' }] },
-            }),
+            createCompletion: jest.fn().mockRejectedValue(new Error('Failed to fetch completion')),
         })),
     };
 });
 
 describe('useCompletion', () => {
-    it('should fetch completion and return the result', async () => {
+    it('should handle error when fetching completion', async () => {
         const prompt = 'Test prompt';
         const apiKey = 'test-api-key';
         const model = 'test-model';
@@ -28,7 +26,7 @@ describe('useCompletion', () => {
         await act(waitForNextUpdate);
 
         expect(result.current.isFetching).toBe(false);
-        expect(result.current.text).toBe('Mocked completion');
-        expect(result.current.error).toBeUndefined();
+        expect(result.current.text).toBeUndefined();
+        expect(result.current.error).toEqual(new Error('Failed to fetch completion'));
     });
 });

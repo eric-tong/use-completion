@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { OpenAIApi } from 'openai';
 import type { Configuration, CreateCompletionRequest } from 'openai'
 import type { Completion } from './types';
@@ -14,13 +14,16 @@ export default function useCompletionWithConfig(request: CreateCompletionRequest
     const [isFetching, setIsFetching] = useState<boolean>(true)
     const [error, setError] = useState<Error>()
 
-    const openai = new OpenAIApi(configuration)
-    openai.createCompletion(request)
-        .then(response => response.data)
-        .then(data => data.choices[0]?.text!!) // TODO: Support cases where n > 1
-        .then(text => setText(text))
-        .then(() => setIsFetching(false))
-        .catch(setError)
+    useEffect(() => {
+        console.log("run")
+        const openai = new OpenAIApi(configuration)
+        openai.createCompletion(request)
+            .then(response => response.data)
+            .then(data => data.choices[0]?.text!!) // TODO: Support cases where n > 1
+            .then(text => setText(text))
+            .catch(setError)
+            .finally(() => setIsFetching(false))
+    }, [request.prompt, request.model, configuration.apiKey]) // TODO: Consider more useEffect dependencies
 
     return { text, isFetching, error }
 }
