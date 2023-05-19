@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { OpenAIApi } from 'openai';
+import axios from 'axios'
 import type { Configuration, CreateCompletionRequest } from 'openai'
 import type { Completion } from './types';
 
@@ -15,14 +16,17 @@ export default function useCompletionWithConfig(request: CreateCompletionRequest
     const [error, setError] = useState<Error>()
 
     useEffect(() => {
-        console.log("run")
         const openai = new OpenAIApi(configuration)
-        openai.createCompletion(request)
+        const cancelTokenSource = axios.CancelToken.source();
+
+        openai.createCompletion(request, {cancelToken: cancelTokenSource.token})
             .then(response => response.data)
             .then(data => data.choices[0]?.text!!) // TODO: Support cases where n > 1
             .then(text => setText(text))
             .catch(setError)
             .finally(() => setIsFetching(false))
+
+        return cancelTokenSource.cancel("Request cancelled due to component cleanup")
     }, [request.prompt, request.model, configuration.apiKey]) // TODO: Consider more useEffect dependencies
 
     return { text, isFetching, error }

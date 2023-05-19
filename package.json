@@ -38,6 +38,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
+    "axios": "0 - 1",
     "react": "16 - 18"
   }
 }
