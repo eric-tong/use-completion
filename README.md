@@ -45,9 +45,6 @@ import React from 'react';
 import { useCompletionWithConfig } from 'use-completion';
 
 function MyComponent() {
-  const prompt = "Suggest three names for an animal that is a superhero.";
-  const apiKey = "YOUR_OPENAI_API_KEY"; // ⚠️ WARNING: Be careful not to leak your API key by using this in public-facing apps
-  
   const request = {
     prompt: "Suggest three names for an animal that is a superhero.",
     model: "my-custom-model",
