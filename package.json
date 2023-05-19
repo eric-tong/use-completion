@@ -1,6 +1,6 @@
 {
   "name": "use-completion",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightweight React Hook to interact with with the OpenAI Completion API, which completes text using GPT models",
   "main": "index.js",
   "scripts": {
