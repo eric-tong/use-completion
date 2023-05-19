@@ -1,4 +1,4 @@
-name: Run Jest Teset
+name: Run Jest Test
 on: push
 jobs:
   build:
