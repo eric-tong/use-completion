@@ -26,7 +26,7 @@ export default function useCompletionWithConfig(request: CreateCompletionRequest
             .catch(setError)
             .finally(() => setIsFetching(false))
 
-        return cancelTokenSource.cancel("Request cancelled due to component cleanup")
+        return () => cancelTokenSource.cancel("Request cancelled due to component cleanup")
     }, [request.prompt, request.model, configuration.apiKey]) // TODO: Consider more useEffect dependencies
 
     return { text, isFetching, error }
