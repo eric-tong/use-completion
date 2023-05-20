@@ -1,6 +1,6 @@
 import { Configuration } from 'openai'
 import type { Completion } from './types';
-import { DEFAULT_MODEL } from './constants';
+import { DEFAULT_MODEL, DEFAULT_MAX_TOKENS } from './constants';
 import useCompletionWithConfig from './useCompletionWithConfig';
 
 /**
@@ -13,7 +13,7 @@ import useCompletionWithConfig from './useCompletionWithConfig';
  */
 export default function useCompletion(prompt: string, apiKey: string, model: string = DEFAULT_MODEL): Completion {
     const configuration = new Configuration({ apiKey })
-    const request = { prompt, model }
+    const request = { prompt, model, max_tokens: DEFAULT_MAX_TOKENS }
 
     return useCompletionWithConfig(request, configuration)
 }
