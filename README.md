@@ -19,7 +19,8 @@ import { useCompletion } from 'use-completion';
 
 function MyComponent() {
   const prompt = "Suggest three names for an animal that is a superhero.";
-  const apiKey = "MY_OPENAI_API_KEY"; // ⚠️ WARNING: Be careful not to leak your API key by using this in public-facing apps
+  // ⚠️ WARNING: Be careful not to leak your API key by using this in public-facing apps
+  const apiKey = "MY_OPENAI_API_KEY"; // Get API key from https://platform.openai.com/account/api-keys
 
   const { text, isFetching } = useCompletion(prompt, apiKey);
   
@@ -51,7 +52,8 @@ function MyComponent() {
     temperature: 0.5
   };
   const configuration = {
-    apiKey: "MY_OPENAI_API_KEY", // ⚠️ WARNING: Be careful not to leak your API key by using this in public-facing apps
+    // ⚠️ WARNING: Be careful not to leak your API key by using this in public-facing apps
+    apiKey : "MY_OPENAI_API_KEY"; // Get API key from https://platform.openai.com/account/api-keys
     organization: "Foobar Corp"
   }
 
