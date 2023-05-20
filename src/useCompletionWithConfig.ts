@@ -19,6 +19,9 @@ export default function useCompletionWithConfig(request: CreateCompletionRequest
         const openai = new OpenAIApi(configuration)
         const cancelTokenSource = axios.CancelToken.source();
 
+        setIsFetching(true)
+        setError(undefined)
+
         openai.createCompletion(request, {cancelToken: cancelTokenSource.token})
             .then(response => response.data)
             .then(data => data.choices[0]?.text!!) // TODO: Support cases where n > 1
