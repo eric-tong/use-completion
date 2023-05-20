@@ -1,10 +1,12 @@
 {
   "name": "use-completion",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Lightweight React Hook to interact with with the OpenAI Completion API, which completes text using GPT models",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "prepare": "npx tsc"
   },
   "repository": {
     "type": "git",
